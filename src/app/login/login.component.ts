@@ -49,23 +49,47 @@ ngOnInit(): void {  //realated to angular, life cycle hook of angular
   }
 
 // login
-  login(){
+  // login(){
 
-    var acno=this.acno
-    var pswd = this.pswd
+  //   var acno=this.acno
+  //   var pswd = this.pswd
 
-    let userDetails=this.userDetails
-    if(acno in userDetails){
-     if(pswd==userDetails[acno].password){
-      alert("login succesfully")
-     }
-     else{
-      alert("incorrect password")
-     }
-    }
-    else{
-      alert("user doesnot exist")
-    }
-    alert("login clicked")
+  //   let userDetails=this.userDetails
+  //   if(acno in userDetails){
+  //    if(pswd==userDetails[acno].password){
+  //     alert("login succesfully")
+  //    }
+  //    else{
+  //     alert("incorrect password")
+  //    }
+  //   }
+  //   else{
+  //     alert("user doesnot exist")
+  //   }
+  //   alert("login clicked")
+  // }
+//}
+
+login(a:any,p:any){
+ console.log(a.value);
+ console.log(p.value);
+ 
+ 
+  var acno = a.value
+  var pswd = p.value
+
+  let userDetails=this.userDetails
+  if(acno in userDetails){
+   if(pswd==userDetails[acno]["password"]){
+    alert("login succesfully")
+   }
+   else{
+    alert("incorrect password")
+   }
   }
+  else{
+    alert("user doesnot exist")
+  }
+  alert("login clicked")
+}
 }

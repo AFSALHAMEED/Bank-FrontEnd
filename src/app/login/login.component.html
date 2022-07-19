@@ -7,12 +7,12 @@
             <form action="">
 
                 <i class="fa-solid fa-1x fa-user"></i>
-                <input type="text" (change)="acnoChange($event)" [placeholder]="account" id="acno"><br>
+                <input #acno type="text" [placeholder]="account" id="acno"><br>
                 <i class="fa-solid fa-1x fa-key"></i>
-                <input (change)="pswdChange($event)" type="password" placeholder="password" id="pswd"><br>
+                <input #pswd type="password" placeholder="password" id="pswd"><br>
                 <a href="#">Forgot Password?</a><br><br>
 
-                <button type="button" (click)="login()" class="btn btn-outline-dark fs-5">Login</button><br>
+                <button type="button" (click)="login(acno,pswd)" class="btn btn-outline-dark fs-5">Login</button><br>
                 <p>Dont have an account?</p>
                 <a href="./register.html"><button type="button" class="btn btn-outline-secondary">Register here</button></a>
 
