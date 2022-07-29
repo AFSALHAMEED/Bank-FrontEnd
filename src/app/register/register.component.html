@@ -1,0 +1,49 @@
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="form">
+            <h1 class="text-center">Registration Form </h1>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="p-2">
+
+                    <label for="uname">First Name</label><br>
+
+                    <input formControlName="uname" type="text" name="uname" class="form-control" id="unname" placeholder="first name">
+                </div>
+                
+                <div class="p-2">
+                    <label for="Account">Account Number</label><br>
+                    <input formControlName="accountnumber" name="account number" type="text" class="form-control" id="Account" placeholder="account number">
+                </div>
+                <div class="p-2">
+                    <label for="phone">Phone Number</label><br>
+                    <input formControlName="phonenumber" type="number" name="phone number" class="form-control" id="phone" placeholder="1234567890">
+                </div>
+                <div class="p-2">
+                    <label for="gmail">Gmail</label><br>
+                    <input formControlName="gmail" type="text" class="form-control" name="gmail" id="gmail" placeholder="@gmail.com">
+                </div>
+                
+                <div class="p-2">
+                    <label for="pwsd">Password</label><br>
+                    <input formControlName="pswd" type="password" class="form-control" id="pswd" name="pswd" placeholder="Password">
+                </div>
+                <div class="p-2">
+                    <input type="checkbox"> I have agreed the terms and condition
+
+                </div>
+                <button type="submit" class="btn btn-outline-primary m-3">Register</button>
+
+                <div class="ms-2">
+                     Already have an account? 
+                     <a routerLink=""><button type="button" class="btn btn-outline-primary m-3">login</button></a>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>

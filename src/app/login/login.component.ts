@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -14,19 +16,13 @@ export class LoginComponent implements OnInit {
 
    //property binding
    account="enter the account number"
-  // data base
-
-  userDetails:any = {
-    1000: {acno: 1000, username: 'neer', password: 1000, balance: 3000},
-    1002: { acno: 1001, username: 'laisha', password: 1001, balance: 2000 },
-    1003: { acno: 1002, username: 'Vyon', password: 1002, balance: 4000 }
-  }
+ 
 
 
- acno=" "
- pswd=" "
+ acno=""
+ pswd=""
 
-constructor() { } // to instantiate object
+constructor(private router:Router,private ds:DataService) { } // to instantiate object
 
 ngOnInit(): void {  //realated to angular, life cycle hook of angular
 }
@@ -41,7 +37,7 @@ ngOnInit(): void {  //realated to angular, life cycle hook of angular
    
   }
 
-   // acno change
+   // pswd change
    pswdChange(event:any){
     this.pswd=event.target.value
    console.log(event.target.value);
@@ -49,47 +45,43 @@ ngOnInit(): void {  //realated to angular, life cycle hook of angular
   }
 
 // login
-  // login(){
+  login(){
 
-  //   var acno=this.acno
-  //   var pswd = this.pswd
+    var acno=this.acno    
+    var pswd = this.pswd
+   const result = this.ds.login(acno,pswd)
 
-  //   let userDetails=this.userDetails
-  //   if(acno in userDetails){
-  //    if(pswd==userDetails[acno].password){
-  //     alert("login succesfully")
-  //    }
-  //    else{
-  //     alert("incorrect password")
-  //    }
-  //   }
-  //   else{
-  //     alert("user doesnot exist")
-  //   }
-  //   alert("login clicked")
-  // }
-//}
+   if(result){
 
-login(a:any,p:any){
- console.log(a.value);
- console.log(p.value);
- 
- 
-  var acno = a.value
-  var pswd = p.value
-
-  let userDetails=this.userDetails
-  if(acno in userDetails){
-   if(pswd==userDetails[acno]["password"]){
     alert("login succesfully")
+    this.router.navigateByUrl("dashboard") 
+
    }
-   else{
-    alert("incorrect password")
-   }
+   
   }
-  else{
-    alert("user doesnot exist")
-  }
-  alert("login clicked")
-}
+//}
+ // two way templating with 2 arg
+// login(a:any,p:any){
+//  console.log(a.value);
+//  console.log(p.value);
+ 
+ 
+//   var acno = a.value
+//   var pswd = p.value
+
+//   let userDetails=this.userDetails
+//   if(acno in userDetails){
+//    if(pswd==userDetails[acno]["password"]){
+//     alert("login succesfully")
+//    }
+//    else{
+//     alert("incorrect password")
+//    }
+//   }
+//   else{
+//     alert("user doesnot exist")
+//   }
+//   alert("login clicked")
+// }
+// }
 }

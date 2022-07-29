@@ -1,0 +1,79 @@
+<!-- deposit forn -->
+<div class="row">
+
+    <div class="col-4"><h2>welocome {{user}}</h2>
+    <a routerLink="/transaction">transaction</a>
+    </div>
+    <div class="col-4">
+        <div class="form">
+            <h1 class="text-center">deposit form </h1>
+            <form (ngSubmit)="deposit()">
+
+
+                <div class="p-2">
+                    <label for="acno">Account Number</label><br>
+                    <input [(ngModel)]="acno" name="acno" type="text" class="form-control"
+                        id="acno" placeholder="account number">
+                </div>
+
+                <div class="p-2">
+                    <label for="pwsd">Password</label><br>
+                    <input [(ngModel)]="pswd" type="password" class="form-control" id="pswd" name="pswd"
+                        placeholder="Password">
+                </div>
+                <div class="p-2">
+
+                    <label for="amount">Amount</label><br>
+
+                    <input [(ngModel)]="amount" type="number" name="amount" class="form-control" id="first"
+                        placeholder="Amount">
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary m-3">deposit</button>
+
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+<!-- withdrawal form -->
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="form">
+            <h1 class="text-center">withdrawal form </h1>
+            <form (ngSubmit)="withdrawal()">
+
+
+                <div class="p-2">
+                    <label for="Account1">Account Number</label><br>
+                    <input [(ngModel)]="accountnumber1" name="account number1" type="number" class="form-control"
+                        id="Account1" placeholder="account number">
+                </div>
+
+                <div class="p-2">
+                    <label for="pwsd1">Password</label><br>
+                    <input [(ngModel)]="pswd1" type="password" class="form-control" id="pswd1" name="pswd1"
+                        placeholder="Password">
+                </div>
+                <div class="p-2">
+
+                    <label for="amount">Amount</label><br>
+
+                    <input [(ngModel)]="amount1" type="number" name="amount1" class="form-control" id="amount1"
+                        placeholder="Amount">
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary m-3">withdrawal</button>
+
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>

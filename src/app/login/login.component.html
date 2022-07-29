@@ -4,17 +4,17 @@
         <div class="forms">
             <h1 class="fs-1">login Form</h1>
 
-            <form action="">
+            <form (ngSubmit)="login()">
 
                 <i class="fa-solid fa-1x fa-user"></i>
-                <input #acno type="text" [placeholder]="account" id="acno"><br>
+                <input [(ngModel)]="acno" name="acno" type="text" placeholder="account" id="acno"><br>
                 <i class="fa-solid fa-1x fa-key"></i>
-                <input #pswd type="password" placeholder="password" id="pswd"><br>
+                <input [(ngModel)]="pswd" name="pswd" type="password" placeholder="password" id="pswd"><br>
                 <a href="#">Forgot Password?</a><br><br>
-
-                <button type="button" (click)="login(acno,pswd)" class="btn btn-outline-dark fs-5">Login</button><br>
+                 <!-- click is an even binding (event name)="function call()" -->
+                <button type="submit"  class="btn btn-outline-dark fs-5">Login</button><br>
                 <p>Dont have an account?</p>
-                <a href="./register.html"><button type="button" class="btn btn-outline-secondary">Register here</button></a>
+                <a routerLink="register"><button type="button" class="btn btn-outline-secondary">Register here</button></a>
 
             </form>
         </div>

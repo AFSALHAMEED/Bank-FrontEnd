@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>TYPE</th>
+            <th>AMOUNT</th>        
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let t of transactions">
+            <th>{{t.type}}</th>
+            <th>{{t.amount}}</th>        
+        </tr>
+       
+    </tbody>
+</table>
+<div class="a1">
+    <a routerLink="/dashboard">HOME</a>
+</div>

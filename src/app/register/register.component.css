@@ -1,0 +1,42 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background: url(./134851387-bank-office-interior-big-work-corporate-room-with-computer-and-desk-or-table-empty-inside-space-of-b.webp);
+    background-size: cover;
+}
+
+
+.form {
+    width: 400px;
+    height: auto;
+    background-color: aliceblue;
+}
+
+h1 {
+    color: brown;
+    font-family: 'Playfair Display', serif;
+}
+input{
+    font-family: 'Playfair Display', serif;
+
+}
+label{
+    font-family: 'Playfair Display', serif;
+
+}
+
+input[type="text"],input[type="password"],input[type="number"] {
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid black;
+}
+
+::placeholder {
+    font-size: large;
+    font-weight: bold;
+    color: brown;
+}
