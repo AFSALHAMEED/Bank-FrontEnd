@@ -2,8 +2,9 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-body{
-    background: url(./FF.jpg);
+.row{
+    height: 100vh;
+    background: url(..//../assets/FF.jpg);
     background-size: cover;
     background-position: center;
 }

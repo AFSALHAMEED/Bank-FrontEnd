@@ -15,11 +15,20 @@ export class TransactionComponent implements OnInit {
   // to hold transaction arra of current user
   transactions:any
   constructor(private ds:DataService) {
-    // get the values of current acno from data service
-    this.acno=this.ds.currentAcno
-    // get transaction array from data service
-    this.transactions=this.ds.getTransaction(this.acno)
-    console.log(this.transactions);
+    // get the values of current acno from localstorage
+    this.acno=JSON.parse(localStorage.getItem('currentAcno') || '')
+    // get transaction array from data service -asychronous
+    this.ds.getTransaction(this.acno)
+    .subscribe(
+      // 2xx
+      (result:any)=>{
+        this.transactions=result.transaction
+      },
+      //4xx
+      result=>{
+        alert(result.error.message)
+      }
+    )
     
    }
 

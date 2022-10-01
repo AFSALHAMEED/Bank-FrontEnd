@@ -1,43 +1,64 @@
-
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
         <div class="form">
             <h1 class="text-center">Registration Form </h1>
             <form [formGroup]="registerForm" (ngSubmit)="register()">
+
                 <div class="p-2">
-
-                    <label for="uname">First Name</label><br>
-
-                    <input formControlName="uname" type="text" name="uname" class="form-control" id="unname" placeholder="first name">
+                    <label for="uname">Name</label><br>
+                    <input formControlName="uname" type="text" name="uname" class="form-control" id="unname"
+                        placeholder="Name">
                 </div>
-                
+
+                <div *ngIf="this.registerForm.get('uname')?.touched&&this.registerForm.get('uname')?.errors">Invalid
+                    Username</div>
+
                 <div class="p-2">
                     <label for="Account">Account Number</label><br>
-                    <input formControlName="accountnumber" name="account number" type="text" class="form-control" id="Account" placeholder="account number">
+                    <input formControlName="accountnumber" name="account number" type="text" class="form-control"
+                        id="Account" placeholder="account number">
                 </div>
+                <div
+                    *ngIf="this.registerForm.get('accountnumber')?.touched&&this.registerForm.get('accountnumber')?.errors">
+                    Invalid accountnumber</div>
+
                 <div class="p-2">
                     <label for="phone">Phone Number</label><br>
-                    <input formControlName="phonenumber" type="number" name="phone number" class="form-control" id="phone" placeholder="1234567890">
+                    <input formControlName="phonenumber" type="number" name="phone number" class="form-control"
+                        id="phone" placeholder="1234567890">
                 </div>
+                <div
+                    *ngIf="this.registerForm.get('phonenumber')?.touched&&this.registerForm.get('phonenumber')?.errors">
+                    Invalid phonenumber</div>
+
                 <div class="p-2">
                     <label for="gmail">Gmail</label><br>
-                    <input formControlName="gmail" type="text" class="form-control" name="gmail" id="gmail" placeholder="@gmail.com">
+                    <input formControlName="gmail" type="text" class="form-control" name="gmail" id="gmail"
+                        placeholder="@gmail.com">
                 </div>
-                
+                <div *ngIf="this.registerForm.get('gmail')?.touched&&this.registerForm.get('gmail')?.errors">Invalid
+                    gmail</div>
+
+
                 <div class="p-2">
                     <label for="pwsd">Password</label><br>
-                    <input formControlName="pswd" type="password" class="form-control" id="pswd" name="pswd" placeholder="Password">
+                    <input formControlName="pswd" type="password" class="form-control" id="pswd" name="pswd"
+                        placeholder="Password">
                 </div>
+                <div *ngIf="this.registerForm.get('pswd')?.touched&&this.registerForm.get('pswd')?.errors">Invalid
+                    password</div>
+
                 <div class="p-2">
                     <input type="checkbox"> I have agreed the terms and condition
 
                 </div>
-                <button type="submit" class="btn btn-outline-primary m-3">Register</button>
+                <button type="submit" class="btn btn-outline-primary  fs-5">Register</button>
 
                 <div class="ms-2">
-                     Already have an account? 
-                     <a routerLink=""><button type="button" class="btn btn-outline-primary m-3">login</button></a>
+                    Already have an account?
+                    <a routerLink=""><button type="button"
+                            class="btn btn-outline-secondary mt-2 fs-5">login</button></a>
                 </div>
 
             </form>

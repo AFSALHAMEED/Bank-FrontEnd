@@ -3,9 +3,11 @@
     padding: 0%;
 }
 
-body {
+.row {
+    height: 100vh;
     background: url(./134851387-bank-office-interior-big-work-corporate-room-with-computer-and-desk-or-table-empty-inside-space-of-b.webp);
     background-size: cover;
+    background-position: center;
 }
 
 
@@ -13,6 +15,7 @@ body {
     width: 400px;
     height: auto;
     background-color: aliceblue;
+    margin-top: 20px;
 }
 
 h1 {
@@ -39,4 +42,14 @@ input[type="text"],input[type="password"],input[type="number"] {
     font-size: large;
     font-weight: bold;
     color: brown;
+}
+
+button{
+    width :80%;
+    margin-left: 40px;
+    
+}
+
+a button{
+    margin-bottom: 20px;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -19,11 +19,11 @@ export class RegisterComponent implements OnInit {
   // register model
 
   registerForm=this.fb.group({
-    uname:[""],
-  accountnumber:[''],
-  phonenumber:[''],
-  gmail:[''],
-  pswd:['']
+    uname:["",[Validators.required,Validators.pattern('[a-zA-Z]*')]],
+  accountnumber:['',[Validators.required,Validators.pattern('[0-9]+')]],
+  phonenumber:['',[Validators.required,Validators.pattern('[0-9]*')]],
+  gmail:['',[Validators.required,Validators.pattern('[a-z0-9]*')]],
+  pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
 
 })
   
@@ -37,18 +37,23 @@ register(){
   var phonenumber=this.registerForm.value.phonenumber
   var gmail=this.registerForm.value.gmail
   var pswd=this.registerForm.value.pswd
+if(this.registerForm.valid){
 
- const result= this.ds.register(acno,uname,pswd,phonenumber,gmail)
- if(result){
-
-  alert('successfully registered')
-  this.router.navigateByUrl('')
- }
+  // register -data service - asychronous
+   this.ds.register(acno,uname,pswd,phonenumber,gmail)
+   .subscribe(
+    (result:any)=>{
+      alert(result.message)
+      this.router.navigateByUrl('')
+    },
+    result=>{
+      alert(result.error.message)
+      this.router.navigateByUrl('')
+    })
+  }
 
  else{
-  alert('user already exist..please login')
-  this.router.navigateByUrl('')
-
+  alert('Invalid Form')
  }
 
 }

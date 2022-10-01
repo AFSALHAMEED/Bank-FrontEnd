@@ -1,0 +1,11 @@
+.style1{
+    opacity: 0;
+}
+
+.dashboard{
+    width: 100%;
+    height: 130vh;
+    background: url(..//..//assets/1003220-november.jpg);
+    background-size:cover;
+    background-position: center;
+}

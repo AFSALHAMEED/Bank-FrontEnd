@@ -4,13 +4,20 @@
         <div class="forms">
             <h1 class="fs-1">login Form</h1>
 
-            <form (ngSubmit)="login()">
-
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div>
                 <i class="fa-solid fa-1x fa-user"></i>
-                <input [(ngModel)]="acno" name="acno" type="text" placeholder="account" id="acno"><br>
+                <input formControlName="acno" name="acno" type="text" placeholder="account" id="acno"><br>
+              </div>
+                <div *ngIf="this.loginForm.get('acno')?.touched&&this.loginForm.get('acno')?.errors">Invalid accountnumber</div>
                 <i class="fa-solid fa-1x fa-key"></i>
-                <input [(ngModel)]="pswd" name="pswd" type="password" placeholder="password" id="pswd"><br>
+
+
+                <input formControlName="pswd" name="pswd" type="password" placeholder="password" id="pswd"><br>
+                <div *ngIf="this.loginForm.get('pswd')?.touched&&this.loginForm.get('pswd')?.errors">Invalid password</div>
+
                 <a href="#">Forgot Password?</a><br><br>
+
                  <!-- click is an even binding (event name)="function call()" -->
                 <button type="submit"  class="btn btn-outline-dark fs-5">Login</button><br>
                 <p>Dont have an account?</p>
